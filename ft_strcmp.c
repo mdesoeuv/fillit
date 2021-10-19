@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/19 15:36:47 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/12 14:19:25 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/15 17:24:14 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int				i;
+	unsigned char	*un_s1;
+	unsigned char	*un_s2;
 
-# define FILLIT_H
-
-// # include "libft.h"
-
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <fcntl.h>
-
-int		ft_tetracount(char *filename);
-char	**ft_tetra_to_tab(char *filename, int tetra_nb);
-int		ft_all_tetra_are_valid(char **tetra, char **ref_tab);
-
-#endif
+	i = 0;
+	un_s1 = (unsigned char *)s1;
+	un_s2 = (unsigned char *)s2;
+	while (un_s1[i])
+	{
+		if (un_s1[i] - un_s2[i] != 0)
+			return (un_s1[i] - un_s2[i]);
+		i++;
+	}
+	return (un_s1[i] - un_s2[i]);
+}

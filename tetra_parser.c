@@ -6,72 +6,52 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/19 11:32:38 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:39:17 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft.h"
 
-int	ft_check_charset(char *buffer)
+char	*ft_tetra_to_str(char *buffer)
 {
-	int	i;
+	int		i;
+	char	*tetra_str;
 
+	tetra_str = (char *)ft_calloc(22, 1);
+	if (!tetra_str)
+		return (NULL);
 	i = 0;
-	while (buffer[i])
+	while (i < 20)
 	{
-		if (!(buffer[i] == '.' || buffer[i] == '#' || buffer[i] == '\n'))
-			return (-1);
+		tetra_str[i] = buffer[i];
 		i++;
 	}
-	printf("charset of buffer is correct\n");
-	return (1);
+	tetra_str[i] = 0;
+	return (tetra_str);
 }
 
-int	ft_bufanalyze(char *buffer, int *count)
+char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 {
-	int	i;
-
-	i = 0;
-	printf("--<checking buffer charset>--\n");
-	if (ft_check_charset(buffer) == -1)
-		return (-1);
-	if (!(buffer[20] == '\n' || buffer[20] == '\0'))
-		return (-1);
-	while (buffer[i])
-	{
-		if ((i + 1) % 5 == 0)
-		{
-			if (buffer[i] != '\n')
-			{
-				printf ("incorrect line\n");
-				return (-1);
-			}
-			printf ("correct line\n");
-		}
-		i++;
-	}
-	(*count)++;
-	return (1);
-}
-
-int	ft_tetracount(char *filename)
-{
+	char	**tetra_tab;
+	int		i;
 	int		fd;
-	int		count;
 	char	*buffer;
 
-	count = 0;
+	tetra_tab = (char **)malloc(sizeof(char *) * (tetra_nb + 1));
+	if (!tetra_nb)
+		return (NULL);
+	buffer = calloc(22, 1);
+	i = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (-1);
-	buffer = ft_calloc(22, 1);
+		return (NULL);
 	while (read(fd, buffer, 21))
 	{
-		printf("--<reading buffer>--\n");
-		if (ft_bufanalyze(buffer, &count) == -1)
-			return (-1);
+		tetra_tab[i] = ft_tetra_to_str(buffer);
 		ft_memset(buffer, 0, 22);
+		i++;
 	}
-	return (count);
+	tetra_tab[i] = 0;
+	return (tetra_tab);
 }
