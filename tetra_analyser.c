@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:33:46 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/19 15:50:03 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:05:20 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ int	ft_tetra_is_valid(char *tetra, char **ref_tab)
 	while (ref_tab[i])
 	{
 		if (ft_strcmp(tetra, ref_tab[i]) == 0)
+		{
+			printf("valid = %d\n", i);
 			return (i);
+		}
 		i++;
 	}
 	return (0);
@@ -97,7 +100,7 @@ int	ft_all_tetra_are_valid(char **tetra, char **ref_tab)
 	i = 0;
 	while (tetra[i])
 	{
-		if (ft_tetra_is_valid(tetra[i], ref_tab) > 0)
+		if (ft_tetra_is_valid(tetra[i], ref_tab) < 0)
 			return (0);
 		i++;
 	}
