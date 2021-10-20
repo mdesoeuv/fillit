@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:33:46 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/19 16:05:20 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:40:48 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	ft_tetracount(char *filename)
 			return (-1);
 		ft_memset(buffer, 0, 22);
 	}
+	close(fd);
+	free(buffer);
 	return (count);
 }
 
