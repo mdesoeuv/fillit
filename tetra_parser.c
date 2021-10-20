@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 10:41:30 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/20 11:59:42 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,51 @@ char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 	close(fd);
 	free(buffer);
 	return (tetra_tab);
+}
+
+t_tetra	*tetra_struct(char *tetra, int pos)
+{
+	t_tetra	*tetra_struct;
+	int		i;
+	int		x;
+	int		y;
+
+	tetra_struct = malloc(sizeof(t_tetra));
+	if (!tetra_struct)
+		return (NULL);
+	i = 0;
+	x = 0;
+	y = 0;
+	while (tetra[i])
+	{
+		if (tetra[i] == '\n')
+		{
+			y++;
+			i++;
+			x = 0;
+		}
+		tetra_struct->graph[y][x] = tetra[i];
+		i++;
+		x++;
+	}
+	tetra_struct->letter = 'A' + pos;
+	return (tetra_struct);
+}
+
+t_tetra	**tetra_to_tabstruct(char **tetra_tab, int tetra_nb)
+{
+	int		i;
+	t_tetra	**struct_tab;
+
+	struct_tab = malloc(sizeof(t_tetra *) * (tetra_nb + 1));
+	if (!struct_tab)
+		return (NULL);
+	i = 0;
+	while (tetra_tab[i])
+	{
+		struct_tab[i] = tetra_struct(tetra_tab[i], i);
+		i++;
+	}
+	struct_tab[i] = NULL;
+	return (struct_tab);
 }
