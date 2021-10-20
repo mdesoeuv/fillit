@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 15:30:22 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:37:26 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,12 @@ t_tetra	*tetra_struct(char *tetra, int pos)
 	while (tetra[i])
 	{
 		if (tetra[i] == '.')
-			tetra_struct->graph[y][x] = tetra[i];
+			tetra_struct->graph[y][x++] = tetra[i];
 		else
-			tetra_struct->graph[y][x] = 'A' + pos;
-		i++;
-		x++;
-		if (tetra[i] == '\n')
+			tetra_struct->graph[y][x++] = 'A' + pos;
+		if (tetra[++i] == '\n')
 		{
-			tetra_struct->graph[y][x] = 0;
-			y++;
+			tetra_struct->graph[y++][x] = 0;
 			x = 0;
 			i++;
 		}
