@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 11:55:11 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:09:05 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ int	main(int argc, char **argv)
 		ft_putendl("all tetras are valid\n");
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
-	while (i < tetra_nb)
-	{
-		display_tetragraph(tetrastruct[i], tetra_nb);
-		i++;
-	}
+	display_all_tetragraph(tetrastruct, tetra_nb);
 	// while (i < tetra_nb)
 	// {
 	// 	printf("\nTetra %d =\n%s\n", i + 1, tetra_tab[i]);

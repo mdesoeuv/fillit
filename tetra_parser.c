@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 11:59:42 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:22:25 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,27 @@ char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 	return (tetra_tab);
 }
 
+t_tetra	*ft_new_elem(void)
+{
+	t_tetra	*tetra_struct;
+	int		i;
+
+	tetra_struct = malloc(sizeof(t_tetra));
+	if (!tetra_struct)
+		return (NULL);
+	tetra_struct->graph = ft_calloc(sizeof(char *), 5);
+	if (!tetra_struct->graph)
+		return (NULL);
+	i = 0;
+	while (i < 5)
+	{
+		if (!(tetra_struct->graph[i] = calloc(sizeof(char), 5)))
+			return (NULL);
+		i++;
+	}
+	return (tetra_struct);
+}
+
 t_tetra	*tetra_struct(char *tetra, int pos)
 {
 	t_tetra	*tetra_struct;
@@ -65,24 +86,24 @@ t_tetra	*tetra_struct(char *tetra, int pos)
 	int		x;
 	int		y;
 
-	tetra_struct = malloc(sizeof(t_tetra));
-	if (!tetra_struct)
-		return (NULL);
+	tetra_struct = ft_new_elem();
 	i = 0;
 	x = 0;
 	y = 0;
 	while (tetra[i])
 	{
-		if (tetra[i] == '\n')
-		{
-			y++;
-			i++;
-			x = 0;
-		}
 		tetra_struct->graph[y][x] = tetra[i];
 		i++;
 		x++;
+		if (tetra[i] == '\n')
+		{
+			tetra_struct->graph[y][x] = 0;
+			y++;
+			x = 0;
+			i++;
+		}
 	}
+	tetra_struct->graph[y] = NULL;
 	tetra_struct->letter = 'A' + pos;
 	return (tetra_struct);
 }

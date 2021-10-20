@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_tetrastruct.c                              :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 11:39:31 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 15:26:21 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/08 11:42:53 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/08 11:45:11 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft.h"
+#include <unistd.h>
 
-void	display_tetragraph(t_tetra *tetra)
-{
-	int	y;
-
-	y = 0;
-	while (tetra->graph[y] != NULL)
-	{
-		ft_putendl(tetra->graph[y]);
-		y++;
-	}
-	ft_putendl("\n");
-}
-
-void	display_all_tetragraph(t_tetra **tetra_tab_struct, int tetra_nb)
+void	ft_putstr(char const *s)
 {
 	int	i;
 
 	i = 0;
-	while (i < tetra_nb)
+	while (s[i])
 	{
-		ft_putstr("Tetra = ");
-		ft_putchar(tetra_tab_struct[i]->letter);
-		ft_putendl("\n");
-		display_tetragraph(tetra_tab_struct[i]);
+		write (1, &s[i], 1);
 		i++;
 	}
 }
