@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 15:41:21 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:47:27 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,15 @@ int	main(int argc, char **argv)
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	map = map_int(4 + tetra_nb - 1);
-	map[0][1] = 'A';
-	map[0][3] = 'B';
+	// map[0][1] = 'A';
+	// map[0][3] = 'B';
+	if (draw_on_map(map, tetrastruct[0], 0, 0) == 0)
+		ft_putendl("impossible to draw this tetra");
+	// map[0][3] = 'B';
+	if (draw_on_map(map, tetrastruct[1], 0, 1) == 0)
+		ft_putendl("impossible to draw this tetra");
+	if (draw_on_map(map, tetrastruct[2], 3, 1) == 0)
+		ft_putendl("impossible to draw this tetra");
 	display_map(map);
 	sqr_side = sqr_side_calc(map, 5);
 	ft_putstr("max surface = ");

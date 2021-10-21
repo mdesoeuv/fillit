@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 15:26:28 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:29:35 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	display_all_tetragraph(t_tetra **tetra, int tetra_nb);
 void	display_map(char **map);
 char	**map_int(int size);
 int		sqr_side_calc(char **map, int size);
+int		draw_on_map(char **map, t_tetra *tetra, int x, int y);
 
 #endif
