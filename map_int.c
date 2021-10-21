@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:58:18 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 11:46:49 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:40:00 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**map_int(int size)
 
 	if (size == 0)
 		return (NULL);
-	map = malloc(sizeof(char *) * (size + 1 ));
+	map = malloc(sizeof(char *) * (size + 1));
 	if (!map)
 		return (NULL);
 	x = 0;
