@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_int.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 09:58:18 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 11:46:49 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/11 15:08:38 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/11 15:09:40 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft.h"
-
-char	**map_int(int size)
+int	ft_strlen(const char *s)
 {
-	int		x;
-	int		y;
-	char	**map;
+	int	i;
 
-	if (size == 0)
-		return (NULL);
-	map = malloc(sizeof(char *) * (size + 1 ));
-	if (!map)
-		return (NULL);
-	x = 0;
-	y = 0;
-	while (x < size)
-	{
-		map[x] = malloc(size + 1);
-		if (!map[x])
-			return (NULL);
-		ft_memset(map[x], '.', size);
-		map[x][size] = 0;
-		x++;
-	}
-	map[size] = NULL;
-	return (map);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

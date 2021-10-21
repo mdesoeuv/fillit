@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 10:11:05 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:00:43 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	t_tetra	**tetrastruct;
 	int		i;
 	char	**map;
+	int		sqr_side;
 
 	if (argc < 2)
 		return (0);
@@ -39,6 +40,12 @@ int	main(int argc, char **argv)
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	map = map_int(5);
+	map[1][1] = 'A';
+	map[3][2] = 'B';
 	display_map(map);
+	sqr_side = sqr_side_calc(map);
+	ft_putstr("max surface = ");
+	ft_putnbr(sqr_side);
+	ft_putstr("\n");
 	return (0);
 }

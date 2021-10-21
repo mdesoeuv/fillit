@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_int.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 09:58:18 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 11:46:49 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/08 15:06:15 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/08 15:12:34 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft.h"
+#include <unistd.h>
 
-char	**map_int(int size)
+static void	ft_putcharn(int n)
 {
-	int		x;
-	int		y;
-	char	**map;
+	char	c;
 
-	if (size == 0)
-		return (NULL);
-	map = malloc(sizeof(char *) * (size + 1 ));
-	if (!map)
-		return (NULL);
-	x = 0;
-	y = 0;
-	while (x < size)
+	c = n + '0';
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int n)
+{
+	long int	nbr;
+
+	nbr = n;
+	if (nbr < 0)
 	{
-		map[x] = malloc(size + 1);
-		if (!map[x])
-			return (NULL);
-		ft_memset(map[x], '.', size);
-		map[x][size] = 0;
-		x++;
+		write(1, "-", 1);
+		nbr = -nbr;
 	}
-	map[size] = NULL;
-	return (map);
+	if (nbr < 10)
+		ft_putcharn(nbr);
+	else
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
 }
