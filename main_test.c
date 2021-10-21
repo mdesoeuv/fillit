@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 15:09:05 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/21 10:11:05 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	int		tetra_nb;
 	t_tetra	**tetrastruct;
 	int		i;
+	char	**map;
 
 	if (argc < 2)
 		return (0);
@@ -37,10 +38,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
 	display_all_tetragraph(tetrastruct, tetra_nb);
-	// while (i < tetra_nb)
-	// {
-	// 	printf("\nTetra %d =\n%s\n", i + 1, tetra_tab[i]);
-	// 	i++;
-	// }
+	map = map_int(5);
+	display_map(map);
 	return (0);
 }
