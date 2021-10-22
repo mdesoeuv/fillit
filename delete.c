@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_on_map.c                                      :+:      :+:    :+:   */
+/*   delete.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 15:51:32 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/22 14:45:58 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/22 14:48:29 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fillit.h"
+#include "libft.h"
 
-int	draw_on_map(char **map, t_tetra *tetra, int x, int y)
+void	delete_d_tab(char **tab)
 {
 	int	i;
 	int	j;
-	int	x_init;
 
+	i = 0;
 	j = 0;
-	x_init = x;
-	while (j < tetra->height)
+	while (tab[i])
 	{
-		i = 0;
-		x = x_init;
-		while (i < tetra->width)
-		{
-			if (tetra->graph[j][i] != '.' \
-			&& (map[y][x] != '.' || map[y][x] == '\0'))
-				return (0);
-			if (tetra->graph[j][i] != '.')
-				map[y][x] = tetra->graph[j][i];
-			i++;
-			x++;
-		}
-		j++;
-		y++;
+		free(tab[i]);
+		i++;
 	}
-	return (1);
+	free(tab);
 }

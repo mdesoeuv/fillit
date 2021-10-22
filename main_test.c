@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/21 16:47:27 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/22 15:42:06 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ int	main(int argc, char **argv)
 		ft_putendl("all tetras are valid\n");
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
+	while (i < tetra_nb)
+	{
+		resize_tetra(tetrastruct[i]);
+		i++;
+	}
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	map = map_int(4 + tetra_nb - 1);
 	// map[0][1] = 'A';
-	// map[0][3] = 'B';
+	map[0][3] = 'Z';
 	if (draw_on_map(map, tetrastruct[0], 0, 0) == 0)
 		ft_putendl("impossible to draw this tetra");
 	// map[0][3] = 'B';
