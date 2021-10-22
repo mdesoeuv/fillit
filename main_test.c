@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:13:17 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 15:42:06 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:15:07 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ int	main(int argc, char **argv)
 		resize_tetra(tetrastruct[i]);
 		i++;
 	}
+	tetrastruct[0]->pos.x = 2;
+	tetrastruct[0]->pos.y = 1;
 	display_all_tetragraph(tetrastruct, tetra_nb);
-	map = map_int(4 + tetra_nb - 1);
-	// map[0][1] = 'A';
+	// map = map_int(4 + tetra_nb - 1);
+	map = map_int(5);
 	map[0][3] = 'Z';
-	if (draw_on_map(map, tetrastruct[0], 0, 0) == 0)
-		ft_putendl("impossible to draw this tetra");
-	// map[0][3] = 'B';
-	if (draw_on_map(map, tetrastruct[1], 0, 1) == 0)
-		ft_putendl("impossible to draw this tetra");
-	if (draw_on_map(map, tetrastruct[2], 3, 1) == 0)
-		ft_putendl("impossible to draw this tetra");
+	refresh_all_map(map, tetrastruct, 4 + tetra_nb - 1, tetra_nb);
+	// if (draw_on_map(map, tetrastruct[0], 0, 0) == 0)
+	// 	ft_putendl("impossible to draw this tetra");
+	// if (draw_on_map(map, tetrastruct[1], 0, 1) == 0)
+	// 	ft_putendl("impossible to draw this tetra");
+	// if (draw_on_map(map, tetrastruct[2], 3, 1) == 0)
+	// 	ft_putendl("impossible to draw this tetra");
 	display_map(map);
-	sqr_side = sqr_side_calc(map, 5);
+	sqr_side = sqr_side_calc(map, 4 + tetra_nb - 1);
 	ft_putstr("max surface = ");
 	ft_putnbr(sqr_side);
 	ft_putstr("\n");

@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 15:49:22 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:04:43 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_tetra
 	char	**graph;
 	int		width;
 	int		height;
+	t_pos	pos;
 	char	letter;
 }	t_tetra;
 
@@ -56,5 +57,6 @@ void	delete_d_tab(char **tab);
 t_tetra	*resize_tetra(t_tetra *tetra);
 int		max_width(char **map, int *x_max, int *x_min);
 int		max_height(char **map, int *y_max, int *y_min);
+void	refresh_all_map(char **map, t_tetra **tetratab, int map_size, int tetra_nb);
 
 #endif
