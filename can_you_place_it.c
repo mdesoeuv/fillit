@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:56:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 17:35:31 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:29:17 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ int	position_recursion(t_maplist **map, t_tetra *tetra)
 	if (can_you_place_it((*map)->map, *tetra, tetra->pos) == 1)
 	{
 		draw_on_list(map, tetra);
-		ft_putstr("found a new home for Tetra ");
-		ft_putchar(tetra->letter);
-		ft_putstr("\n");
-		display_map((*map)->map);
+		// ft_putstr("found a new home for Tetra ");
+		// ft_putchar(tetra->letter);
+		// ft_putstr("\n");
+		// display_map((*map)->map);
 		return (1);
 	}
 	else
 	{
-		ft_putendl("impossible to place tetra");
+		// ft_putendl("impossible to place tetra");
 		new_pos(tetra, (*map)->size);
 		return (position_recursion(map, tetra));
 	}

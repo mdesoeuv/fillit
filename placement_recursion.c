@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:04:53 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 17:42:16 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:35:10 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, i
 	{
 		ft_putendl("backtracking");
 		del_map_elem(map, *map);
+		tetra_tab[current_tetra]->pos.x = 0;
+		tetra_tab[current_tetra]->pos.y = 0;
 		new_pos(tetra_tab[current_tetra - 1], (*map)->size);
 		return(fillit_all(map, tetra_tab, current_tetra - 1, tetra_nb));
 	}

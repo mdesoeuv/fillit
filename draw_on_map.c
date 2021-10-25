@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 18:23:13 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:25:56 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ t_maplist	*draw_on_list(t_maplist **map, t_tetra *tetra)
 
 	map_copy = duplicate_map(*map);
 	tmap = new_map_elem(tetra_to_map_bis(map_copy, *tetra), (*map)->size);
-	ft_putendl("adding to maplist");
-	display_map(map_copy);
+	// ft_putendl("adding to maplist");
+	// display_map(map_copy);
 	maplist_add_front(map, tmap);
 	return (tmap);
 }
