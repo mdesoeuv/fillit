@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 17:22:35 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:23:13 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ char	**duplicate_map(t_maplist *map)
 		i++;
 	}
 	map_copy[i] = NULL;
-	ft_putendl("displaying copy");
 	return (map_copy);
 }
 

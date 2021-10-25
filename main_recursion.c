@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 17:31:02 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:24:35 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	map_result = NULL;
 	while (map_result == NULL && j < 3)
 	{
-		map_result = placement(tetrastruct, tetra_nb + j, tetra_nb);
+		map_result = placement(tetrastruct, 4 + j, tetra_nb);
 		j++;
 	}
 	display_map(map_result->map);
