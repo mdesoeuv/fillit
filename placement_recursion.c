@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:04:53 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 16:45:58 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:29:24 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,19 @@ t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb)
 	ft_putendl("---<resizing map>---");
 	display_map(tmap->map);
 	if (fillit_all(&tmap, tetra_tab, 0, tetra_nb) != NULL)
+	{
+		ft_putendl("returning map");
 		return (tmap);
+	}
 	else
 		return (NULL);
 }
 
 t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, int tetra_nb)
 {
+	ft_putendl("current tetra = ");
+	ft_putnbr(current_tetra);
+	ft_putstr("\n");
 	if (current_tetra == -1)
 		return (NULL);
 	if (current_tetra == tetra_nb)
@@ -49,5 +55,5 @@ t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, i
 		new_pos(tetra_tab[current_tetra - 1], (*map)->size);
 		fillit_all(map, tetra_tab, current_tetra - 1, tetra_nb);
 	}
-	return (NULL);
+	return (*map);
 }

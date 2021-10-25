@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 16:49:16 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:22:35 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ char	**tetra_to_map(char **map, t_tetra *tetra)
 		(tetra_pos.y)++;
 		(map_pos.y)++;
 	}
-	// display_map(map);
 	return (map);
 }
 
