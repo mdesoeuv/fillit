@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 16:57:20 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 17:31:02 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	}
 	ft_putendl("resized =");
 	display_all_tetragraph(tetrastruct, tetra_nb);
-	j = 1;
+	j = 0;
 	map_result = NULL;
 	while (map_result == NULL && j < 3)
 	{
