@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 11:24:55 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:49:22 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		display_all_tetragraph(t_tetra **tetra, int tetra_nb);
 void		display_map(char **map);
 char		**map_int(int size);
 int			sqr_side_calc(char **map, int size);
-int			draw_on_map(char **map, t_tetra *tetra, int x, int y);
+int			draw_on_map(char **map, t_tetra tetra, int x, int y);
 void		delete_d_tab(char **tab);
 t_tetra		*resize_tetra(t_tetra *tetra);
 int			max_width(char **map, int *x_max, int *x_min);
@@ -71,5 +71,11 @@ void		del_map_elem(t_maplist **beginlist, t_maplist *elem);
 void		maplist_add_front(t_maplist **beginlist, t_maplist *elem);
 void		clear_maplist(t_maplist **beginlist);
 void		display_maplist(t_maplist *beginlist);
+void		new_pos(t_tetra *tetra, int map_size);
+int			can_you_place_it(char **map, t_tetra tetra, t_pos pos);
+t_maplist	*draw_on_list(t_maplist **map, t_tetra *tetra);
+int			position_recursion(t_maplist **map, t_tetra *tetra);
+t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, int tetra_nb);
+t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb);
 
 #endif

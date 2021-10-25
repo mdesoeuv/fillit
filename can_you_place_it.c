@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:56:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 18:07:02 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:49:47 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,41 @@ int	can_you_place_it(char **map, t_tetra tetra, t_pos pos)
 	return (1);
 }
 
-t_pos	new_pos(t_tetra *tetra, t_pos pos, int map_size)
+void	new_pos(t_tetra *tetra, int map_size)
 {
-	if (pos.x + 1 <= map_size - tetra->width)
-		pos.x += 1;
-	else if (pos.y + 1 <= map_size - tetra->height)
+	if ((tetra->pos).x + 1 <= map_size - tetra->width)
+		(tetra->pos).x += 1;
+	else if ((tetra->pos).y + 1 <= map_size - tetra->height)
 	{
-		pos.x = 0;
-		pos.y += 1;
+		(tetra->pos).x = 0;
+		(tetra->pos).y += 1;
 	}
 	else
 	{
-		pos.x = -1;
-		pos.y = -1;
+		(tetra->pos).x = -1;
+		(tetra->pos).y = -1;
 	}
-	return (pos);
+}
+
+int	position_recursion(t_maplist **map, t_tetra *tetra)
+{
+	if ((tetra->pos).x == -1 && (tetra->pos).y == -1)
+		return (0);
+	if (can_you_place_it((*map)->map, *tetra, tetra->pos) == 1)
+	{
+		draw_on_list(map, tetra);
+		ft_putstr("found a new home for Tetra ");
+		ft_putchar(tetra->letter);
+		ft_putstr("\n");
+		display_map((*map)->map);
+		return (1);
+	}
+	else
+	{
+		new_pos(tetra, (*map)->size);
+		position_recursion(map, tetra);
+	}
+	return (1);
 }
 
 // t_pos	**place_em_all(char **map, t_tetra **tetratab, int tetra_nb, int i)
