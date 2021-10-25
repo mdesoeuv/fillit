@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 19:22:55 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:38:53 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	tetra_nb = ft_tetracount(argv[1]);
+	if (tetra_nb > 26)
+	{
+		ft_putendl("error");
+		return (0);
+	}
 	printf("tetra count = %d\n", tetra_nb);
 	tetra_tab = ft_tetra_to_tab(argv[1], tetra_nb);
 	tetra_tab_ref = ft_tetra_to_tab("extern_file.txt", 95);
