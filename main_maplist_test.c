@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   main_maplist_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 09:58:18 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 10:33:37 by mdesoeuv         ###   ########.fr       */
+/*   Created: 2021/10/25 11:18:15 by mdesoeuv          #+#    #+#             */
+/*   Updated: 2021/10/25 11:31:45 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
 #include "libft.h"
+#include "fillit.h"
 
-char	**map_int(int size)
+int	main(void)
 {
-	int		x;
-	int		y;
-	char	**map;
+	t_maplist	*map_list;
 
-	if (size == 0)
-		return (NULL);
-	map = malloc(sizeof(char *) * (size + 1));
-	if (!map)
-		return (NULL);
-	x = 0;
-	y = 0;
-	while (x < size)
-	{
-		map[x] = malloc(size + 1);
-		if (!map[x])
-			return (NULL);
-		ft_memset(map[x], '.', size);
-		map[x][size] = 0;
-		x++;
-	}
-	map[size] = NULL;
-	return (map);
+	map_list = NULL;
+	maplist_add_front(&map_list, new_map_elem(map_int(4), 4));
+	maplist_add_front(&map_list, new_map_elem(map_int(5), 5));
+	maplist_add_front(&map_list, new_map_elem(map_int(6), 6));
+	display_maplist(map_list);
+	clear_maplist(&map_list);
+	return (0);
 }
