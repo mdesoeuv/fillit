@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:33:46 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 18:42:15 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:50:41 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_tetra_is_valid(char *tetra, char **ref_tab)
 		}
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_all_tetra_are_valid(char **tetra, char **ref_tab)
@@ -102,7 +102,7 @@ int	ft_all_tetra_are_valid(char **tetra, char **ref_tab)
 	i = 0;
 	while (tetra[i])
 	{
-		if (ft_tetra_is_valid(tetra[i], ref_tab) != 0)
+		if (ft_tetra_is_valid(tetra[i], ref_tab) < 0)
 			return (0);
 		i++;
 	}
