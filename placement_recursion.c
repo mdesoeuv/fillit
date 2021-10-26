@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:04:53 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 19:35:10 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 12:18:04 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,15 @@ t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, i
 	ft_putnbr(current_tetra);
 	ft_putstr("\n");
 	if (current_tetra == 0 && tetra_tab[0]->pos.x == -1 && tetra_tab[0]->pos.y == -1)
+	{
+		del_map_elem(map, *map);
 		return (NULL);
+	}
 	if (current_tetra == -1)
+	{
+		del_map_elem(map, *map);
 		return (NULL);
+	}
 	if (current_tetra == tetra_nb)
 	{
 		ft_putendl("map completed");

@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 19:38:53 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 12:05:49 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	main(int argc, char **argv)
 	int			j;
 	t_maplist 	*map_result;
 
-	if (argc < 2)
+	if (argc != 2)
+	{
+		ft_putendl("usage: fillit source_file");
 		return (0);
+	}
 	tetra_nb = ft_tetracount(argv[1]);
 	if (tetra_nb > 26)
 	{
@@ -43,6 +46,7 @@ int	main(int argc, char **argv)
 		ft_putendl("all tetras are valid\n");
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
+	delete_d_tab(tetra_tab_ref);
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	while (i < tetra_nb)
 	{
@@ -53,12 +57,14 @@ int	main(int argc, char **argv)
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	j = 0;
 	map_result = NULL;
-	while (map_result == NULL && j < 3)
+	while (map_result == NULL)
 	{
 		map_result = placement(tetrastruct, 4 + j, tetra_nb);
 		j++;
 	}
 	display_map(map_result->map);
+	clear_maplist(&map_result);
+	clear_tetrastruct(tetrastruct, tetra_nb);
 	// all free;
 	return (0);
 }

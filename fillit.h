@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 16:49:22 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 11:50:01 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void		new_pos(t_tetra *tetra, int map_size);
 int			can_you_place_it(char **map, t_tetra tetra, t_pos pos);
 t_maplist	*draw_on_list(t_maplist **map, t_tetra *tetra);
 int			position_recursion(t_maplist **map, t_tetra *tetra);
-t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, int tetra_nb);
+t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, \
+int current_tetra, int tetra_nb);
 t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb);
+void		clear_tetrastruct(t_tetra **struct_tab, int tetra_nb);
 
 #endif

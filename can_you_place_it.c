@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:56:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/25 19:29:17 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 12:19:46 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,20 +78,3 @@ int	position_recursion(t_maplist **map, t_tetra *tetra)
 	}
 	return (1);
 }
-
-// t_pos	**place_em_all(char **map, t_tetra **tetratab, int tetra_nb, int i)
-// {
-// 	int		i;
-// 	t_pos	pos;
-
-// 	if (can_you_place_it(map, tetratab[i], pos) == 1 && i < tetra_nb)
-// 	{
-// 		tetratab[i]->pos = pos;
-// 		place_em_all(map, tetratab, tetra_nb, i + 1);
-// 	}
-// 	else
-// 	{
-// 		place_em_all()
-// 	}
-	
-// }
