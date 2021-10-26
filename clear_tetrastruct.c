@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 11:24:44 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 17:47:14 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:33:07 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	clear_tetrastruct(t_tetra **struct_tab, int tetra_nb)
 	while (i < tetra_nb)
 	{
 		j = 0;
-		while (j < 4)
+		while (j < struct_tab[i]->height)
 		{
 			free(struct_tab[i]->graph[j]);
 			j++;
