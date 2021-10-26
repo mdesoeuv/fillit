@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:32:33 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 12:10:01 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:15:32 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	del_map_elem(t_maplist **beginlist, t_maplist *elem)
 	cursor->next = elem->next;
 	if (elem == *beginlist)
 		*beginlist = elem->next;
-	delete_d_tab(elem->map);
+	delete_d_tab(elem->map, elem->size);
 	free(elem);
 	elem = NULL;
 }

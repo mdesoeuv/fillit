@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 16:50:28 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:51:06 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 	return (tetra_tab);
 }
 
-t_tetra	*ft_new_elem(void)
+t_tetra	*ft_new_elem()
 {
 	t_tetra	*new_elem;
 	int		i;
@@ -118,13 +118,12 @@ t_tetra	**tetra_to_tabstruct(char **tetra_tab, int tetra_nb)
 	if (!struct_tab)
 		return (NULL);
 	i = 0;
-	while (tetra_tab[i])
+	while (i < tetra_nb)
 	{
 		struct_tab[i] = tetra_struct(tetra_tab[i], i);
 		i++;
 	}
 	// struct_tab[i] = NULL;
-	delete_d_tab(tetra_tab);
-	free(tetra_tab);
+	delete_d_tab(tetra_tab, tetra_nb);
 	return (struct_tab);
 }

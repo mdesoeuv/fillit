@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 16:56:45 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:28:01 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 		ft_putendl("all tetras are valid\n");
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
-	delete_d_tab(tetra_tab_ref);
+	delete_d_tab(tetra_tab_ref, 95);
 	display_all_tetragraph(tetrastruct, tetra_nb);
 	while (i < tetra_nb)
 	{
@@ -66,6 +66,5 @@ int	main(int argc, char **argv)
 	clear_maplist(&map_result);
 	clear_tetrastruct(tetrastruct, tetra_nb);
 	free(tetrastruct);
-	// all free;
 	return (0);
 }

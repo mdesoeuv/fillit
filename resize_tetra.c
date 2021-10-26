@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:19 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 11:53:24 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:50:38 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ t_tetra	*resize_tetra(t_tetra *tetra)
 		(cursor.y)++;
 	}
 	new_graph[cursor.y] = NULL;
-	free(tetra->graph);
+	delete_d_tab(tetra->graph, 5);
+	// free(tetra->graph);
 	tetra->width = size.x;
 	tetra->height = size.y;
 	tetra->graph = new_graph;

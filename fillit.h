@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 16:54:01 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:10:12 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		display_map(char **map);
 char		**map_int(int size);
 int			sqr_side_calc(char **map, int size);
 int			draw_on_map(char **map, t_tetra tetra, int x, int y);
-void		delete_d_tab(char **tab);
+void		delete_d_tab(char **tab, int height);
 t_tetra		*resize_tetra(t_tetra *tetra);
 int			max_width(char **map, int *x_max, int *x_min);
 int			max_height(char **map, int *y_max, int *y_min);
