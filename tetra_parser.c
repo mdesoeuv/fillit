@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 14:48:52 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:54:57 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_tetra	*ft_new_elem(void)
 	if (!tetra_struct->graph)
 		return (NULL);
 	i = 0;
-	while (i < 5)
+	while (i < 4) // changed to malloc just the right number
 	{
 		if (!(tetra_struct->graph[i] = calloc(sizeof(char), 5)))
 			return (NULL);
