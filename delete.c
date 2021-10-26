@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:45:58 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/22 14:48:29 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:13:41 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	delete_d_tab(char **tab)
 		free(tab[i]);
 		i++;
 	}
+	free(tab[i]);
 	free(tab);
 }

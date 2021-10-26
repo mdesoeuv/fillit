@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 15:04:01 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:50:28 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,24 @@ char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 
 t_tetra	*ft_new_elem(void)
 {
-	t_tetra	*tetra_struct;
+	t_tetra	*new_elem;
 	int		i;
 
-	tetra_struct = malloc(sizeof(t_tetra));
-	if (!tetra_struct)
+	new_elem = malloc(sizeof(*new_elem));
+	if (!new_elem)
 		return (NULL);
-	tetra_struct->graph = ft_calloc(sizeof(char *), 5);
-	if (!tetra_struct->graph)
+	new_elem->graph = ft_calloc(sizeof(char *), 5);
+	if (!new_elem->graph)
 		return (NULL);
 	i = 0;
 	while (i < 4)
 	{
-		tetra_struct->graph[i] = calloc(sizeof(char), 5);
-		if (!(tetra_struct->graph[i]))
+		new_elem->graph[i] = calloc(sizeof(char), 5);
+		if (!(new_elem->graph[i]))
 			return (NULL);
 		i++;
 	}
-	return (tetra_struct);
+	return (new_elem);
 }
 
 t_tetra	*tetra_struct(char *tetra, int pos)
@@ -114,7 +114,7 @@ t_tetra	**tetra_to_tabstruct(char **tetra_tab, int tetra_nb)
 	int		i;
 	t_tetra	**struct_tab;
 
-	struct_tab = malloc(sizeof(t_tetra *) * (tetra_nb + 1));
+	struct_tab = malloc(sizeof(*struct_tab) * tetra_nb);
 	if (!struct_tab)
 		return (NULL);
 	i = 0;
@@ -123,7 +123,8 @@ t_tetra	**tetra_to_tabstruct(char **tetra_tab, int tetra_nb)
 		struct_tab[i] = tetra_struct(tetra_tab[i], i);
 		i++;
 	}
-	struct_tab[i] = NULL;
+	// struct_tab[i] = NULL;
 	delete_d_tab(tetra_tab);
+	free(tetra_tab);
 	return (struct_tab);
 }

@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 12:05:49 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:56:45 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	display_map(map_result->map);
 	clear_maplist(&map_result);
 	clear_tetrastruct(tetrastruct, tetra_nb);
+	free(tetrastruct);
 	// all free;
 	return (0);
 }
