@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:01:43 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:59:55 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,10 @@ t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, \
 int current_tetra, int tetra_nb);
 t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb);
 void		clear_tetrastruct(t_tetra **struct_tab, int tetra_nb);
+void		final_clean(t_tetra **tetrastruct, \
+int tetra_nb, t_maplist *map_result);
+void		final_clean(t_tetra **tetrastruct, \
+int tetra_nb, t_maplist *map_result);
+void		initialize(int *tetra_nb, char ***tetra_tab, char *filename);
 
 #endif

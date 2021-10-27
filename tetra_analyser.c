@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:33:46 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 10:59:09 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 12:06:07 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int	ft_tetracount(char *filename)
 	count = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
+		close(fd);
 		return (-1);
+	}
 	buffer = ft_calloc(22, 1);
 	while (read(fd, buffer, 21))
 	{
@@ -96,5 +99,6 @@ int	ft_all_tetra_are_valid(char **tetra, char **ref_tab)
 			return (0);
 		i++;
 	}
+	delete_d_tab(ref_tab, 95);
 	return (1);
 }
