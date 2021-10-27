@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:33:46 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 12:06:07 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 12:36:44 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ int	ft_tetracount(char *filename)
 	while (read(fd, buffer, 21))
 	{
 		if (ft_bufanalyze(buffer, &count) == -1)
+		{
+			free(buffer);
 			return (-1);
+		}
 		ft_memset(buffer, 0, 22);
 	}
 	close(fd);
