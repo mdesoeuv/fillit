@@ -6,12 +6,38 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:32:33 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 20:42:50 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:01:29 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft.h"
+
+char	**map_graph_init(int size)
+{
+	int		x;
+	int		y;
+	char	**map;
+
+	if (size == 0)
+		return (NULL);
+	map = malloc(sizeof(char *) * (size + 1));
+	if (!map)
+		return (NULL);
+	x = 0;
+	y = 0;
+	while (x < size)
+	{
+		map[x] = malloc(size + 1);
+		if (!map[x])
+			return (NULL);
+		ft_memset(map[x], '.', size);
+		map[x][size] = 0;
+		x++;
+	}
+	map[size] = NULL;
+	return (map);
+}
 
 t_maplist	*new_map_elem(char **map, int size)
 {

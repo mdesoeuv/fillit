@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:38:30 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 17:10:12 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:01:43 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			ft_all_tetra_are_valid(char **tetra, char **ref_tab);
 t_tetra		**tetra_to_tabstruct(char **tetra_tab, int tetra_nb);
 void		display_all_tetragraph(t_tetra **tetra, int tetra_nb);
 void		display_map(char **map);
-char		**map_int(int size);
+char		**map_graph_init(int size);
 int			sqr_side_calc(char **map, int size);
 int			draw_on_map(char **map, t_tetra tetra, int x, int y);
 void		delete_d_tab(char **tab, int height);

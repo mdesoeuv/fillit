@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:19 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 17:50:38 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 10:59:40 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ char	**new_graph_init(int height, int width)
 	return (new_graph);
 }
 
-// char	**new_graph_calc()
-
 t_tetra	*resize_tetra(t_tetra *tetra)
 {
 	t_sqr_pos	pos;
@@ -60,8 +58,6 @@ t_tetra	*resize_tetra(t_tetra *tetra)
 	pos = sqr_coordinates_calc(tetra->graph, 4);
 	size.y = pos.y_max + 1 - pos.y_min;
 	size.x = pos.x_max + 1 - pos.x_min;
-	printf("width = %d\n", size.x);
-	printf("height = %d\n", size.y);
 	new_graph = new_graph_init(size.y, size.x);
 	cursor.y = 0;
 	while (pos.y_min <= pos.y_max)
@@ -73,7 +69,6 @@ t_tetra	*resize_tetra(t_tetra *tetra)
 	}
 	new_graph[cursor.y] = NULL;
 	delete_d_tab(tetra->graph, 5);
-	// free(tetra->graph);
 	tetra->width = size.x;
 	tetra->height = size.y;
 	tetra->graph = new_graph;
