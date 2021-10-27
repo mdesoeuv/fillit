@@ -1,4 +1,5 @@
 /*.out
 /a.out.dSYM/*
-a.out*
+*a.out*
 a.out.dSYM/Contents/Resources/DWARF/a.out
+/a.out.dSYM/Contents/Resources/DWARF/a.out

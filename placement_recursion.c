@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:04:53 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:14:55 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:16:55 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb)
 	map = map_graph_init(size);
 	tmap = new_map_elem(map, size);
 	initialize_tetra_pos(tetra_tab, tetra_nb);
-	display_map(tmap->map);
 	if (fillit_all(&tmap, tetra_tab, 0, tetra_nb) != NULL)
 		return (tmap);
 	else

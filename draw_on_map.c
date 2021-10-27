@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 10:55:46 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:17:50 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ char	**tetra_to_map(char **map, t_tetra *tetra)
 char	**tetra_to_map_bis(char **map, t_tetra tetra)
 {
 	draw_on_map(map, tetra, tetra.pos.x, tetra.pos.y);
-	display_map(map);
 	return (map);
 }
 

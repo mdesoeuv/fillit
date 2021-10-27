@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 20:35:24 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:19:07 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ int	main(int argc, char **argv)
 		ft_putendl("usage: fillit source_file");
 		return (0);
 	}
-	tetra_nb = 0;
 	tetra_nb = ft_tetracount(argv[1]);
 	if (tetra_nb > 26)
 	{
 		ft_putendl("error");
 		return (0);
 	}
-	printf("tetra count = %d\n", tetra_nb);
 	tetra_tab = ft_tetra_to_tab(argv[1], tetra_nb);
 	tetra_tab_ref = ft_tetra_to_tab("extern_file.txt", 95);
 	if (ft_all_tetra_are_valid(tetra_tab, tetra_tab_ref) == 0)
@@ -43,19 +41,15 @@ int	main(int argc, char **argv)
 		ft_putendl("error");
 		return (0);
 	}
-	else
-		ft_putendl("all tetras are valid\n");
 	i = 0;
 	tetrastruct = tetra_to_tabstruct(tetra_tab, tetra_nb);
 	delete_d_tab(tetra_tab_ref, 95);
-	display_all_tetragraph(tetrastruct, tetra_nb);
 	while (i < tetra_nb)
 	{
 		resize_tetra(tetrastruct[i]);
 		i++;
 	}
-	ft_putendl("resized =");
-	display_all_tetragraph(tetrastruct, tetra_nb);
+	// display_all_tetragraph(tetrastruct, tetra_nb);
 	j = 0;
 	map_result = NULL;
 	while (map_result == NULL)
