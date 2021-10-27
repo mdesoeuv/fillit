@@ -6,12 +6,15 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:19 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 10:59:40 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:24:51 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
+
+/* resizing tetra's graphs after validity check */
+/* important to free previous tetra graphs properly */
 
 t_sqr_pos	sqr_coordinates_calc(char **map, int size)
 {

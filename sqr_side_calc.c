@@ -6,12 +6,14 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:16:50 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 11:54:13 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:23:21 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft.h"
+
+/* tools used to calculate rectangles coordinates */
 
 int	height_calc(char **map, int x, int **y_max, int **y_min)
 {

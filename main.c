@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_recursion.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:55:42 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:19:07 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:22:26 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	tetra_nb = ft_tetracount(argv[1]);
-	if (tetra_nb > 26)
-	{
-		ft_putendl("error");
-		return (0);
-	}
 	tetra_tab = ft_tetra_to_tab(argv[1], tetra_nb);
 	tetra_tab_ref = ft_tetra_to_tab("extern_file.txt", 95);
-	if (ft_all_tetra_are_valid(tetra_tab, tetra_tab_ref) == 0)
+	if (ft_all_tetra_are_valid(tetra_tab, tetra_tab_ref) == 0 || tetra_nb > 26)
 	{
 		ft_putendl("error");
 		return (0);
@@ -49,7 +44,6 @@ int	main(int argc, char **argv)
 		resize_tetra(tetrastruct[i]);
 		i++;
 	}
-	// display_all_tetragraph(tetrastruct, tetra_nb);
 	j = 0;
 	map_result = NULL;
 	while (map_result == NULL)
