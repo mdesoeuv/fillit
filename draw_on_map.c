@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 12:23:01 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 10:55:46 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ char	**tetra_to_map(char **map, t_tetra *tetra)
 char	**tetra_to_map_bis(char **map, t_tetra tetra)
 {
 	draw_on_map(map, tetra, tetra.pos.x, tetra.pos.y);
-	ft_putendl("tetra_to_map bis");
 	display_map(map);
 	return (map);
 }
@@ -100,28 +99,7 @@ t_maplist	*draw_on_list(t_maplist **map, t_tetra *tetra)
 	char		**map_copy;
 
 	map_copy = duplicate_map(*map);
-	// map_copy = (*map)->map;
 	tmap = new_map_elem(tetra_to_map_bis(map_copy, *tetra), (*map)->size);
-	// ft_putendl("adding to maplist");
-	// display_map(map_copy);
 	maplist_add_front(map, tmap);
 	return (tmap);
-}
-
-void	refresh_all_map(char **map, t_tetra **tetratab, int map_size, int tetra_nb)
-{
-	int	i;
-
-	i = 0;
-	while (i < map_size)
-	{
-		ft_memset(map[i], '.', map_size);
-		i++;
-	}
-	i = 0;
-	while (i < tetra_nb)
-	{
-		tetra_to_map(map, tetratab[i]);
-		i++;
-	}
 }

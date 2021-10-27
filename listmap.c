@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:32:33 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/26 17:15:32 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:42:50 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	clear_maplist(t_maplist **beginlist)
 	while (cursor != NULL)
 	{
 		cursor = *beginlist;
-		ft_putendl("clearing list");
 		del_map_elem(beginlist, cursor);
 	}
 	*beginlist = NULL;
