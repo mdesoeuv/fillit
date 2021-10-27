@@ -6,12 +6,14 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:39:31 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/20 15:26:21 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:13:14 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft.h"
+
+/* used to show tetra's graphs for debug */
 
 void	display_tetragraph(t_tetra *tetra)
 {

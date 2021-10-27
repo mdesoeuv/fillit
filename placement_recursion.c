@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:04:53 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:02:08 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/27 11:14:55 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,19 @@ t_maplist	*placement(t_tetra **tetra_tab, int size, int tetra_nb)
 
 	map = map_graph_init(size);
 	tmap = new_map_elem(map, size);
-	ft_putendl("---<resizing map>---");
 	initialize_tetra_pos(tetra_tab, tetra_nb);
 	display_map(tmap->map);
 	if (fillit_all(&tmap, tetra_tab, 0, tetra_nb) != NULL)
-	{
-		ft_putendl("returning map");
 		return (tmap);
-	}
 	else
 		return (NULL);
 }
 
-t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, int tetra_nb)
+t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, \
+int current_tetra, int tetra_nb)
 {
-	ft_putendl("current tetra = ");
-	ft_putnbr(current_tetra);
-	ft_putstr("\n");
-	if (current_tetra == 0 && tetra_tab[0]->pos.x == -1 && tetra_tab[0]->pos.y == -1)
+	if (current_tetra == 0 && tetra_tab[0]->pos.x == \
+	-1 && tetra_tab[0]->pos.y == -1)
 	{
 		del_map_elem(map, *map);
 		return (NULL);
@@ -61,22 +56,15 @@ t_maplist	*fillit_all(t_maplist **map, t_tetra **tetra_tab, int current_tetra, i
 		return (NULL);
 	}
 	if (current_tetra == tetra_nb)
-	{
-		ft_putendl("map completed");
 		return (*map);
-	}
 	if (position_recursion(map, tetra_tab[current_tetra]) == 1)
-	{
-		ft_putendl("tetra placed");
-		return(fillit_all(map, tetra_tab, current_tetra + 1, tetra_nb));
-	}
+		return (fillit_all(map, tetra_tab, current_tetra + 1, tetra_nb));
 	else
 	{
-		ft_putendl("backtracking");
 		del_map_elem(map, *map);
 		tetra_tab[current_tetra]->pos.x = 0;
 		tetra_tab[current_tetra]->pos.y = 0;
 		new_pos(tetra_tab[current_tetra - 1], (*map)->size);
-		return(fillit_all(map, tetra_tab, current_tetra - 1, tetra_nb));
+		return (fillit_all(map, tetra_tab, current_tetra - 1, tetra_nb));
 	}
 }
