@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 10:41:57 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 10:58:38 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:45:00 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ char	**ft_tetra_to_tab(char *filename, int tetra_nb)
 
 	tetra_tab = (char **)malloc(sizeof(char *) * (tetra_nb + 1));
 	if (!tetra_nb)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	buffer = calloc(22, 1);
+	if (!buffer)
+		exit(EXIT_FAILURE);
 	i = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	while (read(fd, buffer, 21))
 	{
 		tetra_tab[i] = ft_tetra_to_str(buffer);
@@ -65,16 +67,16 @@ t_tetra	*ft_new_elem(void)
 
 	new_elem = malloc(sizeof(*new_elem));
 	if (!new_elem)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	new_elem->graph = ft_calloc(sizeof(char *), 5);
 	if (!new_elem->graph)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < 4)
 	{
 		new_elem->graph[i] = calloc(sizeof(char), 5);
 		if (!(new_elem->graph[i]))
-			return (NULL);
+			exit(EXIT_FAILURE);
 		i++;
 	}
 	return (new_elem);
@@ -116,7 +118,7 @@ t_tetra	**tetra_to_tabstruct(char **tetra_tab, int tetra_nb)
 
 	struct_tab = malloc(sizeof(*struct_tab) * tetra_nb);
 	if (!struct_tab)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < tetra_nb)
 	{

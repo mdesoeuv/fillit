@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:48:27 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:17:50 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:35:18 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**duplicate_map(t_maplist *map)
 
 	map_copy = malloc(sizeof(char *) * (map->size + 1));
 	if (!map_copy)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < map->size)
 	{

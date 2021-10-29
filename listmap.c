@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:32:33 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:01:29 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:35:01 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ char	**map_graph_init(int size)
 		return (NULL);
 	map = malloc(sizeof(char *) * (size + 1));
 	if (!map)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	x = 0;
 	y = 0;
 	while (x < size)
 	{
 		map[x] = malloc(size + 1);
 		if (!map[x])
-			return (NULL);
+			exit(EXIT_FAILURE);
 		ft_memset(map[x], '.', size);
 		map[x][size] = 0;
 		x++;
@@ -45,7 +45,7 @@ t_maplist	*new_map_elem(char **map, int size)
 
 	elem = malloc(sizeof(*elem));
 	if (!elem)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	elem->map = map;
 	elem->size = size;
 	elem->next = NULL;

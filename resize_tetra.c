@@ -6,7 +6,7 @@
 /*   By: mdesoeuv <mdesoeuv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:43:19 by mdesoeuv          #+#    #+#             */
-/*   Updated: 2021/10/27 11:24:51 by mdesoeuv         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:36:03 by mdesoeuv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ char	**new_graph_init(int height, int width)
 
 	new_graph = malloc(sizeof(char *) * (height + 1));
 	if (!new_graph)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < height)
 	{
 		new_graph[i] = malloc(sizeof(char) * (width + 1));
 		if (!new_graph[i])
-			return (NULL);
+			exit(EXIT_FAILURE);
 		ft_memset(new_graph[i], '.', width);
 		new_graph[i][width] = 0;
 		i++;
